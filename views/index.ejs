@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    
+    <hr />
+
+    <!-- <h2>CURSTUMES :</h2> -->
+    <h2>LISTAGEM :</h2>
+    
+    <ol>
+      <% for(let i=0; i < result.length; i++) { %>
+        <li>
+          <%= result[i].name %> || idade: ( <%= result[i].idade %> ) || _id: ( <%= result[i]._id %> ) || 
+          
+          <form action="delete" method="POST" style="display: inline;">
+            <input type="hidden" name="id" value="<%= result[i]._id %>" />
+            <input type="submit" value="Excluir" />
+        </form>
+
+        </li>
+
+        <br />
+        
+      <% } %>
+    </ol>
+
+    <hr />
+    
+    <h2>Cadastro: </h2>
+    
+    <form action="save" method="POST">
+      
+      <p>
+        <label for="">Nome:
+          <input type="text" name="name" />
+        </label>
+      </p>
+      
+      <p>
+        <label for="">Idade:
+          <input type="number" name="idade" />
+        </label>
+      </p>
+      
+      <p>
+        <input type="submit" value="Salvar" />
+      </p>
+      
+    </form>
+    
+    <hr />
+    
+    <h2>Exclusão: </h2>
+    
+    <form action="delete" method="POST">
+      
+      <p>
+        <label for="">ID:
+          <input type="text" name="id" />
+        </label>
+      </p>
+      
+      <p>
+        <input type="submit" value="Excluir" />
+      </p>
+      
+    </form>
+    
+    <hr />
+
+    <h2>Edição: </h2>
+    
+    <form action="edit" method="POST">
+      
+      <p>
+        <label for="">ID:
+          <input type="text" name="id" />
+        </label>
+      </p>
+
+      <p>
+        <label for="">Nome:
+          <input type="text" name="name" />
+        </label>
+      </p>
+
+      <p>
+        <label for="">Idade:
+          <input type="number" name="idade" />
+        </label>
+      </p>
+      
+      <p>
+          <input type="submit" value="Editar" />
+      </p>
+      
+    </form>
+    
+  </body>
+</html>
